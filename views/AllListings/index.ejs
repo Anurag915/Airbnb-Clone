@@ -12,6 +12,7 @@
     text-align: center;
     margin-top: 2rem;
     opacity: 0.7;
+    cursor: pointer;
   }
   .filter:hover {
     opacity: 1;
@@ -31,52 +32,69 @@
     height: 3.5rem;
     align-items: center;
     display: flex;
+    /* width: 400px; /* Adjust the width to shorten the toggle */
+    /* height: 20px; */ 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 
-  /* filter responsive */
+  /* Responsive styling */
+  /*.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .row-cols-lg-3 {
+    flex: 1 1 calc(33.33% - 1rem);
+  }
+  .row-cols-md-2 {
+    flex: 1 1 calc(50% - 1rem);
+  }
+  .row-cols-sm-1 {
+    flex: 1 1 100%;
+  }*/
 </style>
 <body>
   <div id="filters">
-    <div class="filter">
+    <div class="filter" data-category="trending">
       <div><i class="fa-solid fa-fire"></i></div>
       <p>Trending</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="rooms">
       <div><i class="fa-solid fa-bed"></i></div>
       <p>Rooms</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="iconic">
       <div><i class="fa-solid fa-mountain-city"></i></div>
       <p>Iconic city</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="mountains">
       <div><i class="fa-solid fa-mountain"></i></div>
       <p>Mountains</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="castles">
       <div><i class="fa-brands fa-fort-awesome"></i></div>
       <p>Castles</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="amazing">
       <div><i class="fa-solid fa-person-swimming"></i></div>
       <p>Amazing Pools</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="camping">
       <div><i class="fa-solid fa-campground"></i></div>
       <p>Camping</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="farms">
       <div><i class="fa-solid fa-tractor"></i></div>
       <p>Farms</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-category="arctic">
       <div><i class="fa-regular fa-snowflake"></i></div>
       <p>Arctic Pools</p>
     </div>
-    
-    
     <div class="tax-status">
-      <div class="form-check-reverse form-switch ">
+      <div class="form-check-reverse form-switch">
         <input
           class="form-check-input"
           type="checkbox"
@@ -89,41 +107,75 @@
       </div>
     </div>
   </div>
-  <h1>All Listing</h1>
+
+
+  <h1>All Listings</h1>
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-    <% for(let a of listings){%>
-    <a href="/listings/<%=a._id%>" class="listing_link">
-      <div class="card listing-card">
+    <% for(let a of listings) { %>
+    <a href="/listings/<%= a._id %>" class="listing_link">
+      <div
+        class="card listing-card"
+        data-categories="<%= a.category.join(' ') %>"
+      >
         <img
-          src="<%=a.image.url%>"
+          src="<%= a.image.url %>"
           class="card-img-top"
           alt="..."
           style="height: 20rem"
         />
-
         <div class="card-body">
           <p class="card-text">
             <b><%= a.title %></b><br />
             &#8377;<%= a.price ? a.price.toLocaleString('en-IN') : 'N/A'
-            %>/night<i class="tax-info">&nbsp; &nbsp; +18%GST</i>
+            %>/night
+            <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
           </p>
         </div>
-        <div class="card-img-overlay"></div>
       </div>
     </a>
-    <%}%>
+    <% } %>
   </div>
-</body>
-<script>
-  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-  taxSwitch.addEventListener("click", function () {
-    let taxInfo = document.getElementsByClassName("tax-info");
-    for (let info of taxInfo) {
-      if (info.style.display === "inline") {
-        info.style.display = "none";
-      } else {
-        info.style.display = "inline";
+
+  <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", function () {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (let info of taxInfo) {
+        if (info.style.display === "inline") {
+          info.style.display = "none";
+        } else {
+          info.style.display = "inline";
+        }
       }
-    }
-  });
-</script>
+    });
+    // Get the filter elements
+    const filters = document.querySelectorAll(".filter");
+
+    // Get the original set of all listing cards
+    const allCards = Array.from(document.querySelectorAll(".listing-card"));
+
+    filters.forEach((filter) => {
+      filter.addEventListener("click", function () {
+        const category = this.getAttribute("data-category");
+
+        // Get the card container
+        const cardContainer = document.querySelector(".row");
+
+        // Clear the container
+        cardContainer.innerHTML = "";
+
+        // Filter and append matching cards from the original set
+        allCards.forEach((card) => {
+          const cardCategories = card
+            .getAttribute("data-categories")
+            .split(" ");
+
+          if (category === "all" || cardCategories.includes(category)) {
+            card.style.display = "block"; // Ensure card is visible
+            cardContainer.appendChild(card); // Append card to container
+          }
+        });
+      });
+    });
+  </script>
+</body>

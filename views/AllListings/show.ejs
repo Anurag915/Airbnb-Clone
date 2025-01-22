@@ -14,6 +14,11 @@
       </p>
       <p class="card-text"><%=listing.location%><br /></p>
       <p class="card-text"><%=listing.country%><br /></p>
+      <ul>
+        <% listing.category.forEach(function(cat) { %>
+          <li><%= cat %></li>
+        <% }) %>
+      </ul>
     </div>
   </div>
   <% if(curruser && curruser._id.equals(listing.owner._id)){%>
@@ -99,6 +104,7 @@
           required
         ></textarea>
       </div>
+
       <button class="btn btn-dark">submit</button>
     </form>
     <%}%>

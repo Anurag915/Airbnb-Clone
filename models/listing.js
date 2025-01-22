@@ -22,7 +22,21 @@ const listingSchema=new Schema({
     owner:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-    }
+    },
+    category: [{
+        type: String,
+        enum: [
+            "trending", 
+            "rooms", 
+            "iconic", 
+            "mountains", 
+            "castles", 
+            "amazing", 
+            "camping", 
+            "farms", 
+            "arctic"
+        ]
+    }]
 });
 listingSchema.post("findOneAndDelete",async(listing)=>{
     console.log("post query");

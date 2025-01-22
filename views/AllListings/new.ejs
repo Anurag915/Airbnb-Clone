@@ -74,7 +74,39 @@
         />
         <div class="invalid-feedback">Please write location.</div>
       </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select
+          name="listing[category][]"
+          class="form-control"
+          id="categorySelect"
+          multiple
+        >
+          <option value="trending">Trending</option>
+          <option value="rooms">Rooms</option>
+          <option value="iconic">Iconic City</option>
+          <option value="mountains">Mountains</option>
+          <option value="castles">Castles</option>
+          <option value="amazing">Amazing Pools</option>
+          <option value="camping">Camping</option>
+          <option value="farms">Farms</option>
+          <option value="arctic">Arctic Pools</option>
+        </select>
+        <div class="invalid-feedback">Please select at least one category.</div>
+      </div>
       <button class="btn btn-dark add-btn">submit button</button>
     </form>
   </div>
 </div>
+<script>
+  // Initialize the multiselect plugin
+  document.addEventListener("DOMContentLoaded", function () {
+    $("#categorySelect").multiselect({
+      includeSelectAllOption: true,
+      enableFiltering: true,
+      buttonWidth: "100%",
+      nonSelectedText: "Select Category",
+      allSelectedText: "All Selected"
+    });
+  });
+</script>
