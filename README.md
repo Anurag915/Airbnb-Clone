@@ -1,7 +1,7 @@
 Airbnb Clone
-<a src=>Logo</a>
 
-![Logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.stratosjets.com%2Fblog%2Fairbnb-statistics%2F&psig=AOvVaw05uYwLtQSviTFHpNO7n2xF&ust=1737622106748000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPiE-Pr4iIsDFQAAAAAdAAAAABAE)
+
+![Logo](C:\Users\anura\OneDrive\Documents\MAJORPROJECT1\image.png)
 Website : [Airbnb](https://airbnb-clone-7msn.onrender.com/listings)
 
 An Airbnb clone built to simulate the core functionalities of the original platform, allowing users to book and manage properties, and hosts to list their accommodations. The app features user authentication, property management, and a smooth booking experience.
