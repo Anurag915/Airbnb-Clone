@@ -2,6 +2,8 @@ Airbnb Clone
 
 
 ![Logo](image.png)
+<br/>
+<br/>
 Website : [Airbnb](https://airbnb-clone-7msn.onrender.com/listings)
 
 An Airbnb clone built to simulate the core functionalities of the original platform, allowing users to book and manage properties, and hosts to list their accommodations. The app features user authentication, property management, and a smooth booking experience.
