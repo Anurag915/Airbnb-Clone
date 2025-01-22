@@ -6,22 +6,16 @@ Airbnb Clone
 An Airbnb clone built to simulate the core functionalities of the original platform, allowing users to book and manage properties, and hosts to list their accommodations. The app features user authentication, property management, and a smooth booking experience.
 <br/>
 <br/>
-
 🚀Features
 * **User Authentication**: Secure sign-up, login, and account management.
 <br/>
-<br/>
 * **Property Listings**: Detailed property information with images, descriptions, and pricing.
-<br/>
 <br/>
 * **Filter**: Easily search for properties by location, dates, and type.
 <br/>
-<br/>
 * **Host Interface**: Manage your properties, update listings, and track bookings.
 <br/>
-<br/>
 * **Admin Panel**: Admins can manage user activity, listings, and bookings.
-<br/>
 <br/>
 
 ## Tech Stack
