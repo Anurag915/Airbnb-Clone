@@ -14,11 +14,11 @@
       </p>
       <p class="card-text"><%=listing.location%><br /></p>
       <p class="card-text"><%=listing.country%><br /></p>
-      <ul>
+      <!-- <ul>
         <% listing.category.forEach(function(cat) { %>
           <li><%= cat %></li>
         <% }) %>
-      </ul>
+      </ul> -->
     </div>
   </div>
   <% if(curruser && curruser._id.equals(listing.owner._id)){%>
