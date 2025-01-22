@@ -8,7 +8,6 @@ An Airbnb clone built to simulate the core functionalities of the original platf
 <br/>
 🚀Features
 * **User Authentication**: Secure sign-up, login, and account management.
-<br/>
 * **Property Listings**: Detailed property information with images, descriptions, and pricing.
 <br/>
 * **Filter**: Easily search for properties by location, dates, and type.
