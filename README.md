@@ -9,13 +9,9 @@ An Airbnb clone built to simulate the core functionalities of the original platf
 🚀Features
 * **User Authentication**: Secure sign-up, login, and account management.
 * **Property Listings**: Detailed property information with images, descriptions, and pricing.
-<br/>
 * **Filter**: Easily search for properties by location, dates, and type.
-<br/>
 * **Host Interface**: Manage your properties, update listings, and track bookings.
-<br/>
 * **Admin Panel**: Admins can manage user activity, listings, and bookings.
-<br/>
 
 ## Tech Stack
 * **Frontend**: React.js, HTML, CSS, JavaScript
